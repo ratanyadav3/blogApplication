@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog</title>
+    <%- include('partials/header.ejs') %>
+    <!-- Add custom styles if needed -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .form-container {
+            background: #ffffff; /* White background for form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/nav.ejs') %>
+    <div class="container mt-5">
+        <div class="form-container mx-auto w-75">
+            <h1 class="form-title">Create a New Blog Post</h1>
+            <form action="/blog/add-new" method="post" enctype="multipart/form-data">
+                <!-- Thumbnail File Input -->
+                <div class="mb-4">
+                    <label for="exampleInputFile" class="form-label">Thumbnail</label>
+                    <input type="file" class="form-control" id="exampleInputFile" name="thumbnail" required>
+                </div>
+                
+                <!-- Title Text Input -->
+                <div class="mb-4">
+                    <label for="exampleInputTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="exampleInputTitle" name="title" placeholder="Enter blog title" required>
+                </div>
+
+                <!-- Content Text Input -->
+                <div class="mb-4">
+                    <label for="exampleInputContent" class="form-label">Content</label>
+                    <textarea class="form-control" id="exampleInputContent" name="body" rows="6" placeholder="Write your blog content here..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Publish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include('partials/script.ejs') %>
+</body>
+</html>
